@@ -17,9 +17,11 @@ package com.example.android.sunshine;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -222,6 +224,18 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         }
 
         // TODO (2) Launch the map when the map menu item is clicked
+        if(id==R.id.action_map){
+            String location= "Moscow, Russia";
+            Uri.Builder builder = new Uri.Builder();
+            Uri uriMap = builder.path("0,0")
+                    .scheme("geo")
+                    .appendQueryParameter("q=",location).build();
+
+            Intent intent = new Intent(Intent.ACTION_VIEW, uriMap);
+            if(intent.resolveActivity(getPackageManager())!=null){
+                startActivity(intent);
+            }
+        }
 
         return super.onOptionsItemSelected(item);
     }
