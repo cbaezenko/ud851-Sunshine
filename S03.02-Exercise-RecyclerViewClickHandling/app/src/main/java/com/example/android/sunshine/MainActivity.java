@@ -140,8 +140,8 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapter.F
     }
 
     @Override
-    public void onClick(String string) {
-        String weatherDataItem=string;
+    public void onClick(String weatherForDay) {
+        String weatherDataItem= weatherForDay;
         Toast.makeText(this, "Clicked: "+weatherDataItem ,Toast.LENGTH_SHORT).show();
     }
 

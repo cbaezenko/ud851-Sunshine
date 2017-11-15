@@ -34,13 +34,13 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         final private ForecastAdapterOnClickHandler mClickHandler;
     // TODO (1) Add an interface called ForecastAdapterOnClickHandler
     public interface  ForecastAdapterOnClickHandler{
-        void onClick(String string);
+        void onClick(String weatherForDay);
     }
     // TODO (2) Within that interface, define a void method that access a String as a parameter
 
     // TODO (4) Add a ForecastAdapterOnClickHandler as a parameter to the constructor and store it in mClickHandler
-    public ForecastAdapter(ForecastAdapterOnClickHandler forecastAdapterOnClickHandler) {
-    mClickHandler = forecastAdapterOnClickHandler;
+    public ForecastAdapter(ForecastAdapterOnClickHandler clickHandler) {
+    mClickHandler = clickHandler;
     }
 
     // TODO (5) Implement OnClickListener in the ForecastAdapterViewHolder class
@@ -61,9 +61,9 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         @Override
         public void onClick(View view) {
             //getAdapterPosition();
-            int position=getAdapterPosition();
-            String clickedDayData=mWeatherData[position];
-            mClickHandler.onClick(clickedDayData);
+            int adapterPosition=getAdapterPosition();
+            String weatherForDay=mWeatherData[adapterPosition];
+            mClickHandler.onClick(weatherForDay);
         }
 
         // TODO (6) Override onClick, passing the clicked day's data to mClickHandler via its onClick method
