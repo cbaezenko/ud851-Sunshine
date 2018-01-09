@@ -31,6 +31,7 @@ dependencies {
 //  TODO (1) Add the ConstraintLayout dependency to your project
 
     compile 'com.firebase:firebase-jobdispatcher:0.5.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
     // Instrumentation dependencies use androidTestCompile
     // (as opposed to testCompile for local unit tests run in the JVM)
@@ -38,4 +39,6 @@ dependencies {
     androidTestCompile 'com.android.support:support-annotations:25.1.0'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support.test:rules:0.5'
+
+    android.defaultConfig.vectorDrawables.useSupportLibrary = true
 }
